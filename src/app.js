@@ -15,7 +15,8 @@ import HeaderBar from "./Components/HeaderBar";
 
 import React from "react";
 
-const App = () => {
+// const App = () =>
+function App() {
   return (
     <div className="App">
       <Router>
@@ -34,6 +35,6 @@ const App = () => {
       </Router>
     </div>
   );
-};
+}
 
 export default App;
