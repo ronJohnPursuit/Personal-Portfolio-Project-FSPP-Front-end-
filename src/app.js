@@ -10,9 +10,7 @@ import Edit from "./Pages/Edit";
 import Error from "./Pages/Error";
 
 // COMPONENTS
-import Nav from "./Components/Nav";
-import HeaderBar from "./Components/HeaderBar";
-
+import HeaderBar from "./components/HeaderBar";
 import React from "react";
 
 // const App = () =>
@@ -21,15 +19,14 @@ function App() {
     <div className="App">
       <Router>
         <HeaderBar />
-        <Nav />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/snacks" element={<Index />} />
-            <Route path="/snacks/new" element={<New />} />
-            <Route path="/snacks/:id" element={<Show />} />
-            <Route path="/snacks/:id/edit" element={<Edit />} />
-            <Route path="/error" element={<Error />} />
+            {/* <Route path="/services" element={<Index />} />
+            <Route path="/services/new" element={<New />} />
+            <Route path="/services/:id" element={<Show />} />
+            <Route path="/services/:id/edit" element={<Edit />} />
+            <Route path="/error" element={<Error />} /> */}
           </Routes>
         </main>
       </Router>
