@@ -10,6 +10,7 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
 import Error from "./Pages/Error";
+import About from "./components/About";
 import CalendarApp from "./Pages/CalendarApp";
 
 // COMPONENTS
@@ -27,9 +28,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Index />} />
+            <Route path="/About_Us" element={<About />} />
             <Route path="/services/new" element={<New />} />
             <Route path="/services/:id" element={<Show />} />
-            {/* <Route path="/services/:id/edit" element={<Edit />} /> */}
+            <Route path="/services/:id/edit" element={<Edit />} />
             <Route path="/*" element={<Error />} />
           </Routes>
         </main>

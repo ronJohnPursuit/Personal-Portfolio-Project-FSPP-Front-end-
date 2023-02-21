@@ -20,11 +20,11 @@ export default function HeaderBar() {
           New service
         </Link>
       </button>
-      <button className="outerNavButton3">
+      {/* <button className="outerNavButton3">
         <Link className="navButton" to="/Contact">
           Contact Us
         </Link>
-      </button>
+      </button> */}
 
       <button className="outerNavButton4">
         <Link className="navButton" to="/About_Us">

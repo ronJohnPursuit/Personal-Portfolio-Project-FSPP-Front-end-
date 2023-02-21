@@ -1,6 +1,33 @@
 /* .highlight {
   color: red;
 } */
+.About {
+  text-align: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 75vh;
+}
+.About_pfpTarez {
+  background-image: url("../public/Screen\ Shot\ 2023-02-17\ at\ 9.53.31\ AM.png");
+  background-size: contain;
+  height: 200px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+}
+.About_Devs {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.About_pfp {
+  height: 200px;
+  width: 200px;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
 
 .navButtonHdg,
 .navButtonHdg2,

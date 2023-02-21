@@ -1,20 +1,11 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 const API = process.env.REACT_APP_API_URL;
 
-function NewSnackForm() {
+function EditSnackForm() {
+  let { id } = useParams();
   let navigate = useNavigate();
-
-  const addSnack = (newSnack) => {
-    axios
-      .post(`${API}/snacks`, newSnack)
-      .then(() => {
-        navigate(`/services`);
-      })
-      .catch((c) => console.warn("catch", c));
-  };
 
   const [snack, setSnack] = useState({
     name: "",
@@ -28,30 +19,50 @@ function NewSnackForm() {
     image: "",
   });
 
-  const [image, setImage] = useState("");
+  const updateSnack = (updatedSnack) => {
+    axios
+      .put(`${API}/snacks/${id}`, updatedSnack)
+      .then(
+        () => {
+          console.log("this is the id: ", { id });
+          navigate(`/services/${id}`);
+        },
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn("catch", c));
+  };
 
   const handleTextChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });
-    console.log("newly set Snack", snack);
-    // if(!event.target.image) {
-    //   // setImage('https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image')
-    //   setImage("https://fastly.picsum.photos/id/63/200/300.jpg?hmac=Zhw62KKdLbsw5yRcx9gVDEQq4kzPwjZUrJAJUIryu6k")
-    // }
   };
 
-  //   const handleCheckboxChange = () => {
-  //     setSnack({ ...snack, is_healthy: !snack.is_healthy });
-  //   };
+  useEffect(() => {
+    axios
+      .get(`${API}/snacks/${id}`)
+      .then((response) => {
+        setSnack(response.data);
+      })
+      .catch((c) => {
+        navigate("/error");
+      });
+  }, [id]);
+
+  //   axios.get(`${API}/snacks/${id}`)
+  //   .then((response) => setSnack(response.data))
+  //   .catch((c) => navigate("/error")
+  // )
+  // }, [id, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addSnack(snack);
+    updateSnack(snack, id);
   };
+
   return (
     <div className="newSnack">
       <form onSubmit={handleSubmit} className="newSnackFormBox">
         <label htmlFor="name">Job:</label>
-        <textarea
+        <input
           id="name"
           value={snack.name}
           type="text"
@@ -66,7 +77,7 @@ function NewSnackForm() {
           type="text"
           name="descript"
           value={snack.descript}
-          placeholder="Please enter desciption of job"
+          placeholder="Please enter amount of descript in grams"
           onChange={handleTextChange}
         />
 
@@ -76,7 +87,7 @@ function NewSnackForm() {
           type="text"
           name="starting_rate"
           value={snack.starting_rate}
-          placeholder="$"
+          placeholder="Please enter amount of starting_rate in grams"
           onChange={handleTextChange}
         />
 
@@ -98,7 +109,7 @@ function NewSnackForm() {
               checked={snack.is_healthy}
             /> */}
         <br />
-        <label htmlFor="add_serviceprice">add service price :</label>
+        <label htmlFor="add_serviceprice">add. service price:</label>
         <input
           id="add_serviceprice"
           type="text"
@@ -109,7 +120,7 @@ function NewSnackForm() {
           onChange={handleTextChange}
         />
         <br />
-        <label htmlFor="add_service2">add service :</label>
+        <label htmlFor="add_service2">add service:</label>
         <textarea
           id="add_service2"
           type="text"
@@ -120,7 +131,7 @@ function NewSnackForm() {
           onChange={handleTextChange}
         />
         <br />
-        <label htmlFor="add_service2price">add service price :</label>
+        <label htmlFor="add_service2price">add service price:</label>
         <input
           id="add_service2price"
           type="text"
@@ -131,18 +142,18 @@ function NewSnackForm() {
           onChange={handleTextChange}
         />
         <br />
-        <label htmlFor="date_service">Date:</label>
-        <input
+        <label htmlFor="date_service">Date</label>
+        <textarea
           id="date_service"
           type="text"
-          //   pattern="http[s]*://.+"
+          //   pattern="/^\d{4}-\d{2}-\d{2}$/"
           // required ? does it tho?
           value={snack.date_service}
           placeholder=""
           onChange={handleTextChange}
-        ></input>
+        ></textarea>
         <br />
-        <label htmlFor="image">Document:</label>
+        <label htmlFor="image">document:</label>
         <textarea
           id="image"
           type="text"
@@ -164,4 +175,4 @@ function NewSnackForm() {
   );
 }
 
-export default NewSnackForm;
+export default EditSnackForm;

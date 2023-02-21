@@ -47,7 +47,7 @@ function SnackDetails() {
     <article className="SnackDetails">
       <div className="snackShowBox">
         <div className="snackLinkBox">
-          <h4 className="snackLinkBoxHdg">View Other Snacks</h4>
+          <h4 className="snackLinkBoxHdg">View Other Services</h4>
           <div>
             {allsnacks.map((snack) => {
               return (
@@ -60,7 +60,7 @@ function SnackDetails() {
                     src={
                       snack.image
                         ? snack.image
-                        : "https://www.tastingtable.com/img/gallery/coffee-brands-ranked-from-worst-to-best/intro-1645231221.webp"
+                        : "https://image.cnbcfm.com/api/v1/image/106657061-1597086951668-taxtime.jpeg?v=1609957898&w=1600&h=900"
                     }
                   ></img>
                   <td>
@@ -77,13 +77,21 @@ function SnackDetails() {
         <div className="">
           <h3 className="snackName snackShowBoxHdg">{snacks.name}</h3>
           <h4 className="snackName snackShowBoxHdg">{snacks.descript}</h4>
+          <h5>
+            {" "}
+            {snacks.date_service
+              ? typeof snacks.date_service == "object"
+                ? snacks.date_service
+                : snacks.date_service.slice(0, 10)
+              : "date TBD"}
+          </h5>
           <br />
           <img
             className="foodImg"
             src={
               snacks.image
                 ? snacks.image
-                : "https://www.tastingtable.com/img/gallery/coffee-brands-ranked-from-worst-to-best/intro-1645231221.webp"
+                : "https://image.cnbcfm.com/api/v1/image/106657061-1597086951668-taxtime.jpeg?v=1609957898&w=1600&h=900"
             }
             alt="image not found"
           />

@@ -3,6 +3,7 @@ import "../App.css";
 
 function Snack({ snack }) {
   // console.log(snack);
+
   return (
     <section>
       <ul>
@@ -15,9 +16,9 @@ function Snack({ snack }) {
                 src={
                   snack.image
                     ? snack.image
-                    : "https://www.tastingtable.com/img/gallery/coffee-brands-ranked-from-worst-to-best/intro-1645231221.webp"
+                    : "https://image.cnbcfm.com/api/v1/image/106657061-1597086951668-taxtime.jpeg?v=1609957898&w=1600&h=900"
                 }
-                alt="image not found"
+                // alt="image not found"
               />
             </Link>
             <Link className="snackNameBox" to={`/services/${snack.id}`}>
@@ -29,8 +30,13 @@ function Snack({ snack }) {
               <h4>
                 Shedule date of service:
                 <br />
-                {snack.date_service.slice(0, 10)}
+                {snack.date_service
+                  ? typeof snack.date_service == "object"
+                    ? snack.date_service
+                    : snack.date_service.slice(0, 10)
+                  : "date TBD"}
               </h4>
+              {console.log("flag", typeof snack.date_service)}
               {/* {snack.name} */}
               {/* {snacks.starting_rate}
               {snacks.date_service} */}

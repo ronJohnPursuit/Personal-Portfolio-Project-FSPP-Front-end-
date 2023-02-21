@@ -24,9 +24,9 @@ function CalendarApp() {
       (previousScore, currentScore, index) => previousScore + currentScore,
       0
     );
-  let formattedDate = snacks.map((snack) => snack.date_service.slice(0, 10));
-  console.log(total);
-  console.log(formattedDate);
+  // let formattedDate = snacks.map((snack) => snack.date_service.slice(0, 10));
+  // console.log(total);
+  // console.log(formattedDate);
 
   // let dateTest = new Date(formattedDate[0]).toLocalDateString();
   // console.log("flag test", dateTest);
