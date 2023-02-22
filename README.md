@@ -27,5 +27,5 @@ Usage
 </ol>
 Credits
 <p>The design and code for this project was created by <a href="https://github.com/ronJohnPursuit">Ronald Johnson</a> as part of the Full Stack Web Development program at <a href="https://www.pursuit.org/">Pursuit</a>.</p>
-License
+
 
