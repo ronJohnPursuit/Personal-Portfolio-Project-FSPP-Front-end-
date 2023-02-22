@@ -3,11 +3,11 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-function EditSnackForm() {
+function EditServiceForm() {
   let { id } = useParams();
   let navigate = useNavigate();
 
-  const [snack, setSnack] = useState({
+  const [service, setService] = useState({
     name: "",
     descript: "",
     starting_rate: "",
@@ -19,9 +19,9 @@ function EditSnackForm() {
     image: "",
   });
 
-  const updateSnack = (updatedSnack) => {
+  const updateService = (updatedService) => {
     axios
-      .put(`${API}/snacks/${id}`, updatedSnack)
+      .put(`${API}/services/${id}`, updatedService)
       .then(
         () => {
           console.log("this is the id: ", { id });
@@ -33,41 +33,41 @@ function EditSnackForm() {
   };
 
   const handleTextChange = (event) => {
-    setSnack({ ...snack, [event.target.id]: event.target.value });
+    setService({ ...service, [event.target.id]: event.target.value });
   };
 
   useEffect(() => {
     axios
-      .get(`${API}/snacks/${id}`)
+      .get(`${API}/services/${id}`)
       .then((response) => {
-        setSnack(response.data);
+        setService(response.data);
       })
       .catch((c) => {
         navigate("/error");
       });
   }, [id]);
 
-  //   axios.get(`${API}/snacks/${id}`)
-  //   .then((response) => setSnack(response.data))
+  //   axios.get(`${API}/services/${id}`)
+  //   .then((response) => setService(response.data))
   //   .catch((c) => navigate("/error")
   // )
   // }, [id, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateSnack(snack, id);
+    updateService(service, id);
   };
 
   return (
-    <div className="newSnack">
-      <form onSubmit={handleSubmit} className="newSnackFormBox">
+    <div className="newService">
+      <form onSubmit={handleSubmit} className="newServiceFormBox">
         <label htmlFor="name">Job:</label>
         <input
           id="name"
-          value={snack.name}
+          value={service.name}
           type="text"
           onChange={handleTextChange}
-          placeholder="Please enter the snack name or type"
+          placeholder="Please enter the service name or type"
           required
         />
 
@@ -76,7 +76,7 @@ function EditSnackForm() {
           id="descript"
           type="text"
           name="descript"
-          value={snack.descript}
+          value={service.descript}
           placeholder="Please enter amount of descript in grams"
           onChange={handleTextChange}
         />
@@ -86,7 +86,7 @@ function EditSnackForm() {
           id="starting_rate"
           type="text"
           name="starting_rate"
-          value={snack.starting_rate}
+          value={service.starting_rate}
           placeholder="Please enter amount of starting_rate in grams"
           onChange={handleTextChange}
         />
@@ -96,7 +96,7 @@ function EditSnackForm() {
           id="add_service"
           type="text"
           name="add_service"
-          value={snack.add_service}
+          value={service.add_service}
           placeholder="Please describe additional service"
           onChange={handleTextChange}
         />
@@ -106,7 +106,7 @@ function EditSnackForm() {
               id="is_healthy"
               type="checkbox"
               onChange={handleCheckboxChange}
-              checked={snack.is_healthy}
+              checked={service.is_healthy}
             /> */}
         <br />
         <label htmlFor="add_serviceprice">add. service price:</label>
@@ -115,7 +115,7 @@ function EditSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.add_serviceprice}
+          value={service.add_serviceprice}
           placeholder="$"
           onChange={handleTextChange}
         />
@@ -126,7 +126,7 @@ function EditSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.add_service2}
+          value={service.add_service2}
           placeholder="describe add service"
           onChange={handleTextChange}
         />
@@ -137,7 +137,7 @@ function EditSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.add_service2price}
+          value={service.add_service2price}
           placeholder="$"
           onChange={handleTextChange}
         />
@@ -148,7 +148,7 @@ function EditSnackForm() {
           type="text"
           //   pattern="/^\d{4}-\d{2}-\d{2}$/"
           // required ? does it tho?
-          value={snack.date_service}
+          value={service.date_service}
           placeholder=""
           onChange={handleTextChange}
         ></textarea>
@@ -159,7 +159,7 @@ function EditSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.image}
+          value={service.image}
           placeholder="image url"
           onChange={handleTextChange}
         ></textarea>
@@ -175,4 +175,4 @@ function EditSnackForm() {
   );
 }
 
-export default EditSnackForm;
+export default EditServiceForm;

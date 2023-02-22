@@ -1,4 +1,4 @@
-import SnackDetails from "../components/SnackDetails";
+import ServiceDetails from "../components/ServiceDetails";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -11,7 +11,7 @@ function Show() {
   return (
     <div className="show">
       <h2>Service Detail page</h2>
-      <SnackDetails />
+      <ServiceDetails />
     </div>
   );
 }

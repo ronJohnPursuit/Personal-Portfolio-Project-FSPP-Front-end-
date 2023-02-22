@@ -11,7 +11,7 @@ import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
 import Error from "./Pages/Error";
 import About from "./components/About";
-import CalendarApp from "./Pages/CalendarApp";
+// import CalendarApp from "./Pages/CalendarApp";
 
 // COMPONENTS
 import HeaderBar from "./components/HeaderBar";

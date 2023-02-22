@@ -38,11 +38,11 @@
   height: 5vh;
   width: 5vh;
 }
-.snackShowBox {
+.serviceShowBox {
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
-.snackNameBox {
+.serviceNameBox {
   color: rgb(50, 168, 14);
   font-weight: bolder;
   /* font-size: 1.55em; */
@@ -59,7 +59,7 @@
   background-color: rgba(41, 4, 101, 0.605);
   text-decoration: none;
 }
-.snackNameBoxname {
+.serviceNameBoxname {
   color: rgb(50, 168, 14);
   font-weight: bolder;
 }
@@ -115,7 +115,7 @@
 .text-center {
   height: 90px;
 }
-.snackCards {
+.serviceCards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 20px;

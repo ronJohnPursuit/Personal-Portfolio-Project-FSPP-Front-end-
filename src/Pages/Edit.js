@@ -1,12 +1,12 @@
-import EditSnackForm from "../components/EditSnackForm";
+import EditServiceForm from "../components/EditServiceForm";
 
 function Edit() {
   return (
     <div className="edit">
       <div className="editHdgs">
-        {/* <span className="editSnackHdg">Edit This Snack</span> <br /> */}
+        {/* <span className="editServiceHdg">Edit This Service</span> <br /> */}
         <br />
-        <EditSnackForm />
+        <EditServiceForm />
       </div>
     </div>
   );

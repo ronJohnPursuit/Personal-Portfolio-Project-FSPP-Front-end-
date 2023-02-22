@@ -4,19 +4,19 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-function NewSnackForm() {
+function NewServiceForm() {
   let navigate = useNavigate();
 
-  const addSnack = (newSnack) => {
+  const addService = (newService) => {
     axios
-      .post(`${API}/snacks`, newSnack)
+      .post(`${API}/services`, newService)
       .then(() => {
         navigate(`/services`);
       })
       .catch((c) => console.warn("catch", c));
   };
 
-  const [snack, setSnack] = useState({
+  const [service, setService] = useState({
     name: "",
     descript: "",
     starting_rate: "",
@@ -31,8 +31,8 @@ function NewSnackForm() {
   const [image, setImage] = useState("");
 
   const handleTextChange = (event) => {
-    setSnack({ ...snack, [event.target.id]: event.target.value });
-    console.log("newly set Snack", snack);
+    setService({ ...service, [event.target.id]: event.target.value });
+    console.log("newly set Service", service);
     // if(!event.target.image) {
     //   // setImage('https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image')
     //   setImage("https://fastly.picsum.photos/id/63/200/300.jpg?hmac=Zhw62KKdLbsw5yRcx9gVDEQq4kzPwjZUrJAJUIryu6k")
@@ -40,23 +40,23 @@ function NewSnackForm() {
   };
 
   //   const handleCheckboxChange = () => {
-  //     setSnack({ ...snack, is_healthy: !snack.is_healthy });
+  //     setService({ ...service, is_healthy: !service.is_healthy });
   //   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addSnack(snack);
+    addService(service);
   };
   return (
-    <div className="newSnack">
-      <form onSubmit={handleSubmit} className="newSnackFormBox">
+    <div className="newService">
+      <form onSubmit={handleSubmit} className="newServiceFormBox">
         <label htmlFor="name">Job:</label>
         <textarea
           id="name"
-          value={snack.name}
+          value={service.name}
           type="text"
           onChange={handleTextChange}
-          placeholder="Please enter the snack name or type"
+          placeholder="Please enter the service name or type"
           required
         />
 
@@ -65,7 +65,7 @@ function NewSnackForm() {
           id="descript"
           type="text"
           name="descript"
-          value={snack.descript}
+          value={service.descript}
           placeholder="Please enter desciption of job"
           onChange={handleTextChange}
         />
@@ -75,7 +75,7 @@ function NewSnackForm() {
           id="starting_rate"
           type="text"
           name="starting_rate"
-          value={snack.starting_rate}
+          value={service.starting_rate}
           placeholder="$"
           onChange={handleTextChange}
         />
@@ -85,7 +85,7 @@ function NewSnackForm() {
           id="add_service"
           type="text"
           name="add_service"
-          value={snack.add_service}
+          value={service.add_service}
           placeholder="Please describe additional service"
           onChange={handleTextChange}
         />
@@ -95,7 +95,7 @@ function NewSnackForm() {
               id="is_healthy"
               type="checkbox"
               onChange={handleCheckboxChange}
-              checked={snack.is_healthy}
+              checked={service.is_healthy}
             /> */}
         <br />
         <label htmlFor="add_serviceprice">add service price :</label>
@@ -104,7 +104,7 @@ function NewSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.add_serviceprice}
+          value={service.add_serviceprice}
           placeholder="$"
           onChange={handleTextChange}
         />
@@ -115,7 +115,7 @@ function NewSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.add_service2}
+          value={service.add_service2}
           placeholder="describe add service"
           onChange={handleTextChange}
         />
@@ -126,7 +126,7 @@ function NewSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.add_service2price}
+          value={service.add_service2price}
           placeholder="$"
           onChange={handleTextChange}
         />
@@ -137,7 +137,7 @@ function NewSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.date_service}
+          value={service.date_service}
           placeholder=""
           onChange={handleTextChange}
         ></input>
@@ -148,7 +148,7 @@ function NewSnackForm() {
           type="text"
           //   pattern="http[s]*://.+"
           // required ? does it tho?
-          value={snack.image}
+          value={service.image}
           placeholder="image url"
           onChange={handleTextChange}
         ></textarea>
@@ -164,4 +164,4 @@ function NewSnackForm() {
   );
 }
 
-export default NewSnackForm;
+export default NewServiceForm;

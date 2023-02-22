@@ -8,23 +8,23 @@ console.log(API);
 
 function CalendarApp() {
   const [date, setDate] = useState(new Date());
-  const [snacks, setSnacks] = useState([]);
+  const [services, setServices] = useState([]);
   useEffect(() => {
     axios
-      .get(`${API}/snacks`)
+      .get(`${API}/services`)
       .then((response) => {
         console.log(response.data);
-        setSnacks(response.data);
+        setServices(response.data);
       })
       .catch((c) => console.warn("catch", c));
   }, []);
-  let total = snacks
-    .map((snack) => snack.starting_rate)
+  let total = services
+    .map((service) => service.starting_rate)
     .reduce(
       (previousScore, currentScore, index) => previousScore + currentScore,
       0
     );
-  // let formattedDate = snacks.map((snack) => snack.date_service.slice(0, 10));
+  // let formattedDate = services.map((service) => service.date_service.slice(0, 10));
   // console.log(total);
   // console.log(formattedDate);
 

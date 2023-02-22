@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Snack from "./Snack"; //this line needed?
+import Service from "./Service"; //this line needed?
 
 //import { Link} from "react-router-dom";
 
@@ -8,18 +8,18 @@ const API = process.env.REACT_APP_API_URL;
 console.log(API);
 
 function AllServices() {
-  const [snacks, setSnacks] = useState([]);
+  const [services, setServices] = useState([]);
   useEffect(() => {
     axios
-      .get(`${API}/snacks`)
+      .get(`${API}/services`)
       .then((response) => {
         console.log(response.data);
-        setSnacks(response.data);
+        setServices(response.data);
       })
       .catch((c) => console.warn("catch", c));
   }, []);
-  //   let total = snacks
-  //     .map((snack) => snack.starting_rate)
+  //   let total = services
+  //     .map((service) => service.starting_rate)
   //     .reduce(
   //       (previousScore, currentScore, index) => previousScore + currentScore,
   //       0
@@ -30,9 +30,9 @@ function AllServices() {
   // });
   return (
     <div>
-      <p className="snackCards">
-        {snacks.map((snack) => {
-          return <Snack key={snack.id} snack={snack} />;
+      <p className="serviceCards">
+        {services.map((service) => {
+          return <Service key={service.id} service={service} />;
         })}
       </p>
     </div>
