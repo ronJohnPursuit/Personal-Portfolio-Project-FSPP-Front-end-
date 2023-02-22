@@ -28,4 +28,4 @@ Usage
 Credits
 <p>The design and code for this project was created by <a href="https://github.com/ronJohnPursuit">Ronald Johnson</a> as part of the Full Stack Web Development program at <a href="https://www.pursuit.org/">Pursuit</a>.</p>
 License
-<p>This project is licensed under the MIT License. See the <a href="https://github.com/ronJohnPursuit/Personal-Portfolio-Project-FSPP-Front-end-/blob/main/LICENSE">LICENSE</a> file for more information.</p>
+
